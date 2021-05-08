@@ -1,2 +1,2 @@
-var name = document.getElementById("name");
-console.log(name);
+var name1 = document.getElementById("name");
+console.log(name1);
