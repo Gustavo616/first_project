@@ -5,7 +5,6 @@ function validar() {
     var cel = document.getElementById("cel");
     var cep = document.getElementById("cep");
     var sexo = document.getElementById("sexo");
-    var passw = /^[A-Za-z]\w{7,14}$/;
 
 
     if (name.value == "") {
@@ -14,36 +13,48 @@ function validar() {
         name.focus();
         name.style.backgroundColor = "red";
         return;
+    }else{
+        name.style.backgroundColor = "white";  
     }
     if (email.value == "" || !emailCoisa(email.value)) {
         alert("Email inválido");
         email.focus();
         email.style.backgroundColor = "red";
         return
+    }else{
+        email.style.backgroundColor = "white";  
     }
     if (senha.value.length < 6) {
         alert("Senha inválida");
         senha.focus();
         senha.style.backgroundColor = "red";
         return;
+    }else{
+        senha.style.backgroundColor = "white";  
     }
     if (cel.value == "") {
         alert("Celular inválido");
         cel.focus();
         cel.style.backgroundColor = "red";
         return;
+    }else{
+        cel.style.backgroundColor = "white";  
     }
     if (cep.value == "") {
         alert("Cep inválido");
         cep.focus();
         cep.style.backgroundColor = "red";
         return;
+    }else{
+        cep.style.backgroundColor = "white";  
     }
     if (sexo.value == "valor1") {
         alert("Qual o seu gênero");
         sexo.focus();
         sexo.style.backgroundColor = "red";
         return;
+    }else{
+        sexo.style.backgroundColor = "white";  
     }
 
 }
@@ -77,11 +88,33 @@ function mcel(v) {
     }
     return r;
 }
-function bcep(cep) {
+function scep(cep) {
     var script = document.createElement("script");
     script.src = "https://viacep.com.br/ws/" + cep + "/json/?callback=meucallback"
     document.body.appendChild(script)
 }
+
+function mask2(cep, pcep) {
+    setTimeout(function () {
+        var p = pcep(cep.value); //chama a função da mascara para preencher cada cada digito//
+        if (p != cep.value) { //verifica se a mascara é diferente do que está para o usuario//
+            cep.value = p; //se sim o valor recebe o valor incluido na mascara//
+        }
+    }
+
+    )
+
+}
+
+function pcep(p) {
+    var r = p.replace(/\D/g, "");
+    r = r.replace(/^0/, "");
+    if (r.length > 5) {
+        r = r.replace(/^(\d{5})(\d{0,4}).*/, "$1-$2");
+    }
+    return r;
+}
+
 function meucallback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.

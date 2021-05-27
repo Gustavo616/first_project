@@ -31,6 +31,10 @@ input:hover {
 }
 input:focus, select:focus {
     outline: 0;
+}
+label {
+    position: relative;
+    top: 10px;
 } 
 .cep {
     position: relative;
@@ -56,14 +60,23 @@ select {
     margin-block: 9px;
 }
 #enviar {
-    margin-block: 14px;
-    margin-inline: 30%;
-    height: 26px;
-    width: 40%;
-    background-color: rgba(0, 174, 255, 0.685);
-    border-radius: 4px;
-    border-color: rgb(0, 62, 90);
+    width: 80%;
+    height: 60px;
+    background-color: #2093e0;
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 16px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    transition: filter 0.2s;
+    cursor: pointer;
 }
-/* .endereco {
-    display: none;
-} */
+
+#enviar:hover {
+    filter: brightness(75%);
+  }
