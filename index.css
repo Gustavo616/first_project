@@ -80,3 +80,6 @@ select {
 #enviar:hover {
     filter: brightness(75%);
   }
+#endereco {
+    display: none;
+}

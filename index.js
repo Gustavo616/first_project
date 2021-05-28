@@ -5,7 +5,7 @@ function validar() {
     var cel = document.getElementById("cel");
     var cep = document.getElementById("cep");
     var sexo = document.getElementById("sexo");
-
+    var ende = document.getElementsById('endereco');
 
     if (name.value == "") {
         console.log(name);
@@ -128,5 +128,10 @@ function meucallback(conteudo) {
         alert("CEP não encontrado.");
 
     }
-}
-
+} 
+  
+document.getElementById("cep").onmouseleave = function() {
+    if (cep.value.length>7) {
+        document.getElementById("endereco").style.display = "initial";
+    }
+    }
